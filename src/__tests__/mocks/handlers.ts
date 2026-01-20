@@ -30,10 +30,10 @@ export const handlers = [
   }),
 
   http.post(`${API_URL}/return/requests`, async ({ request }) => {
-    const body = await request.json()
+    const body = (await request.json()) as Record<string, unknown>
     return HttpResponse.json({
       id: '2',
-      ...body,
+      ...(body ?? {}),
       status: 'pending',
       requestedAt: new Date().toISOString(),
       processedAt: null,

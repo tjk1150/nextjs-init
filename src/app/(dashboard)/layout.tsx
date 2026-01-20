@@ -3,6 +3,7 @@
 import type { ReactNode } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
+import type { Route } from 'next'
 
 import { cn } from '@/shared/utils'
 import { Button } from '@/shared/ui'
@@ -12,13 +13,13 @@ interface DashboardLayoutProps {
   children: ReactNode
 }
 
-const navigation = [
-  { name: 'Dashboard', href: '/dashboard' },
-  { name: 'Return', href: '/return/request' },
-  { name: 'Trade', href: '/trade/list' },
-  { name: 'Payment', href: '/payment/list' },
-  { name: 'Settlement', href: '/settlement/list' },
-  { name: 'Profile', href: '/user/profile' },
+const navigation: Array<{ name: string; href: Route }> = [
+  { name: 'Dashboard', href: '/dashboard' as Route },
+  { name: 'Return', href: '/return/request' as Route },
+  { name: 'Trade', href: '/trade/list' as Route },
+  { name: 'Payment', href: '/payment/list' as Route },
+  { name: 'Settlement', href: '/settlement/list' as Route },
+  { name: 'Profile', href: '/user/profile' as Route },
 ]
 
 export default function DashboardLayout({ children }: DashboardLayoutProps) {
@@ -77,7 +78,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
 
       {/* Main content */}
       <main className="flex-1 overflow-auto">
-        <div className="h-16 border-b bg-card px-6 flex items-center">
+        <div className="flex h-16 items-center border-b bg-card px-6">
           <h1 className="text-lg font-semibold">
             {navigation.find((item) => pathname.startsWith(item.href))?.name ?? 'Dashboard'}
           </h1>
