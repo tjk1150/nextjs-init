@@ -1,0 +1,24 @@
+Codemap Diff Report
+===================
+Generated: 2025-01-20T17:30:00Z
+
+Status: INITIAL CREATION
+Previous Version: N/A
+Current Version: 1.0.0
+
+Changes:
+--------
+[NEW] docs/codemaps/architecture.md - Overall architecture
+[NEW] docs/codemaps/frontend.md - Frontend structure
+[NEW] docs/codemaps/data.md - Data models and schemas
+
+Diff Percentage: 100% (new files)
+
+Summary:
+--------
+- Total files created: 3
+- Architecture layers documented: 3 (app, domains, shared)
+- Domains documented: 5 (return, trade, payment, user, settlement)
+- Data types documented: 5 domain types + shared types
+
+No backend.md created (frontend-only project).
