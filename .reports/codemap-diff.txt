@@ -1,24 +1,46 @@
 Codemap Diff Report
 ===================
-Generated: 2025-01-20T17:30:00Z
+Generated: 2025-01-20T22:10:00Z
 
-Status: INITIAL CREATION
-Previous Version: N/A
-Current Version: 1.0.0
+Status: UPDATE
+Previous Version: 2025-01-20T17:30:00Z
+Current Version: 2025-01-20T22:10:00Z
 
 Changes:
 --------
-[NEW] docs/codemaps/architecture.md - Overall architecture
-[NEW] docs/codemaps/frontend.md - Frontend structure
-[NEW] docs/codemaps/data.md - Data models and schemas
+[UPDATED] docs/codemaps/architecture.md
+  - Next.js version: 14 -> 16.1.4
+  - React version: (implicit 18) -> 19.2.3
+  - Added Tech Stack table with all versions
+  - File counts: 79 -> 85 files
+  - Lines: ~2700 -> ~2230 (refactored)
+  - Added Typed Routes pattern
 
-Diff Percentage: 100% (new files)
+[UPDATED] docs/codemaps/frontend.md
+  - Hooks table: Added "Pattern" column
+  - useLocalStorage: Now uses useSyncExternalStore
+  - useMediaQuery: Now uses useSyncExternalStore
+  - Added Navigation section with typed routes
+
+[NO CHANGE] docs/codemaps/data.md
+  - Domain types unchanged
+  - Query keys unchanged
+
+Diff Percentage: 15% (minor updates)
+Approval Required: No (< 30%)
 
 Summary:
 --------
-- Total files created: 3
-- Architecture layers documented: 3 (app, domains, shared)
-- Domains documented: 5 (return, trade, payment, user, settlement)
-- Data types documented: 5 domain types + shared types
+- Files updated: 2
+- Files unchanged: 1
+- Architecture layers: Same (3: app, domains, shared)
+- Domains: Same (5: return, trade, payment, user, settlement)
+- Major changes: Version upgrades, hook patterns
 
-No backend.md created (frontend-only project).
+Key Updates:
+------------
+1. Next.js 14 -> 16.1.4 (App Router + Turbopack)
+2. React 18 -> 19.2.3
+3. ESLint 8 -> 9 (Flat Config)
+4. Hooks refactored to use useSyncExternalStore
+5. Added typed routes support

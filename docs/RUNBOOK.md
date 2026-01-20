@@ -6,15 +6,15 @@
 
 ### Prerequisites
 
-- Node.js 18+
-- npm 9+
+- Node.js 20+ (required for Next.js 16)
+- npm 10+
 - Access to deployment platform (Vercel/AWS/etc.)
 
 ### Production Build
 
 ```bash
 # 1. Install dependencies
-npm ci
+npm ci --legacy-peer-deps
 
 # 2. Type check
 npm run type-check
@@ -90,7 +90,7 @@ npm run lint
 
 # Clear cache and rebuild
 rm -rf .next node_modules
-npm install
+npm install --legacy-peer-deps
 npm run build
 ```
 
@@ -134,6 +134,34 @@ echo $NEXT_PUBLIC_WS_URL
 wscat -c $NEXT_PUBLIC_WS_URL
 ```
 
+### 5. ESLint Flat Config Issues
+
+**Symptoms:** ESLint errors about missing config
+
+**Solutions:**
+
+```bash
+# Ensure eslint.config.mjs exists (ESLint 9 flat config)
+ls eslint.config.mjs
+
+# Run lint directly
+npx eslint src/
+```
+
+### 6. React 19 Peer Dependency Warnings
+
+**Symptoms:** npm install shows peer dependency warnings
+
+**Solutions:**
+
+```bash
+# Use legacy peer deps flag
+npm install --legacy-peer-deps
+
+# Or add to .npmrc
+echo "legacy-peer-deps=true" >> .npmrc
+```
+
 ## Rollback Procedures
 
 ### Vercel
@@ -153,7 +181,7 @@ vercel rollback [deployment-url]
 git checkout v1.x.x
 
 # 2. Rebuild
-npm ci && npm run build
+npm ci --legacy-peer-deps && npm run build
 
 # 3. Deploy
 npm start

@@ -9,8 +9,8 @@
 git clone https://github.com/tjk1150/nextjs-init.git
 cd nextjs-init
 
-# 2. Install dependencies
-npm install
+# 2. Install dependencies (use --legacy-peer-deps for React 19)
+npm install --legacy-peer-deps
 
 # 3. Setup environment
 cp .env.example .env.local
@@ -21,21 +21,21 @@ npm run dev
 
 ## Available Scripts
 
-| Script            | Command                 | Description              |
-| ----------------- | ----------------------- | ------------------------ |
-| `dev`             | `next dev`              | Start development server |
-| `build`           | `next build`            | Create production build  |
-| `start`           | `next start`            | Start production server  |
-| `lint`            | `next lint`             | Run ESLint               |
-| `lint:fix`        | `next lint --fix`       | Fix lint errors          |
-| `type-check`      | `tsc --noEmit`          | TypeScript type checking |
-| `test`            | `vitest`                | Run unit tests           |
-| `test:ui`         | `vitest --ui`           | Run tests with UI        |
-| `test:coverage`   | `vitest --coverage`     | Run tests with coverage  |
-| `test:e2e`        | `playwright test`       | Run E2E tests            |
-| `storybook`       | `storybook dev -p 6006` | Start Storybook          |
-| `build-storybook` | `storybook build`       | Build Storybook          |
-| `prepare`         | `husky`                 | Setup git hooks          |
+| Script            | Command                 | Description                     |
+| ----------------- | ----------------------- | ------------------------------- |
+| `dev`             | `next dev --turbopack`  | Start dev server with Turbopack |
+| `build`           | `next build`            | Create production build         |
+| `start`           | `next start`            | Start production server         |
+| `lint`            | `eslint src/`           | Run ESLint on src/              |
+| `lint:fix`        | `eslint src/ --fix`     | Fix lint errors                 |
+| `type-check`      | `tsc --noEmit`          | TypeScript type checking        |
+| `test`            | `vitest`                | Run unit tests                  |
+| `test:ui`         | `vitest --ui`           | Run tests with UI               |
+| `test:coverage`   | `vitest --coverage`     | Run tests with coverage         |
+| `test:e2e`        | `playwright test`       | Run E2E tests                   |
+| `storybook`       | `storybook dev -p 6006` | Start Storybook                 |
+| `build-storybook` | `storybook build`       | Build Storybook                 |
+| `prepare`         | `husky`                 | Setup git hooks                 |
 
 ## Environment Variables
 
@@ -46,6 +46,21 @@ npm run dev
 | `NEXT_PUBLIC_APP_NAME`        | `Joeun`                     | Application name     |
 | `NEXT_PUBLIC_APP_URL`         | `http://localhost:3000`     | Frontend URL         |
 | `NEXT_PUBLIC_ENABLE_MOCK_API` | `true`                      | Enable MSW mock API  |
+
+## Tech Stack
+
+| Category       | Package        | Version |
+| -------------- | -------------- | ------- |
+| Framework      | Next.js        | 16.1.4  |
+| UI Library     | React          | 19.2.3  |
+| State (Server) | TanStack Query | 5.90.19 |
+| State (Client) | Zustand        | 5.0.10  |
+| Validation     | Zod            | 3.25.0  |
+| Styling        | Tailwind CSS   | 3.4.17  |
+| Linting        | ESLint         | 9.20.0  |
+| Testing        | Vitest         | 3.1.3   |
+| E2E Testing    | Playwright     | 1.52.0  |
+| TypeScript     | TypeScript     | 5.8.3   |
 
 ## Development Workflow
 
